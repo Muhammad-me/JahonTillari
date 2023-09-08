@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ArrowLongDown() {
+export default function Burger() {
   return (
     <div>
       <svg
@@ -8,12 +8,12 @@ export default function ArrowLongDown() {
         fill="none"
         viewBox="0 0 24 24"
         strokeWidth={1.5}
-        stroke="orange"
-        className="w-14 h-10">
+        stroke="#fff"
+        className="w-10 h-10">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
         />
       </svg>
     </div>

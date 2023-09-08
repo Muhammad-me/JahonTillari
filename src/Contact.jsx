@@ -1,4 +1,17 @@
 export default function Contact() {
+  function Submit(e) {
+    const formEl = document.querySelector("form");
+    e.preventDefault();
+    const formData = new FormData(formEl);
+    fetch("https://sheetdb.io/api/v1/xsd7zvyh6etuv", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => data)
+      .catch((err) => console.log(err));
+  }
+
   return (
     <div id="pg4" className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
       <div
@@ -18,82 +31,80 @@ export default function Contact() {
         </h2>
       </div>
       <form
-        action="#"
-        method="POST"
-        className="mx-auto mt-16 max-w-xl sm:mt-20">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+        className="mx-auto mt-16 max-w-md sm:mt-20"
+        onSubmit={(e) => Submit(e)}>
+        <div>
           <div>
             <label
               htmlFor="first-name"
-              className="block text-sm font-semibold leading-6 text-gray-900">
-              First name
+              className="block text-md font-bold leading-6 text-gray-900">
+              Full name
             </label>
-            <div className="mt-2.5">
+            <div className="mt-1">
               <input
                 type="text"
-                name="first-name"
+                name="IsmFamilya"
                 id="first-name"
+                placeholder="Full name"
                 autoComplete="given-name"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
-          <div>
-            <label
-              htmlFor="last-name"
-              className="block text-sm font-semibold leading-6 text-gray-900">
-              Last name
-            </label>
-            <div className="mt-2.5">
-              <input
-                type="text"
-                name="last-name"
-                id="last-name"
-                autoComplete="family-name"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
+          <div className="flex justify-between mt-5">
+            <div>
+              <label
+                htmlFor="phone-number"
+                className="block text-md font-bold leading-6 text-gray-900">
+                Phone number
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="Raqam"
+                  id="phone-number"
+                  placeholder="Phone Number"
+                  autoComplete="tel"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="phone-number"
+                className="block text-md font-bold leading-6 text-gray-900">
+                Course
+              </label>
+              <div className="relative mt-2 rounded-lg w-36 h-10 flex items-center justify-center shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <select name="Kurs" className="p-2 outline-none cursor-pointer">
+                  <optgroup className="p-3 bg-zinc-100 text-lg font-medium">
+                    <option value="Choose">Choose one</option>
+                    <option value="Tarix">Tarix</option>
+                    <option value="Kimyo">Kimyo</option>
+                    <option value="Biologiya">Biologiya</option>
+                    <option value="Fizika">Fizika</option>
+                    <option value="Matematika">Matematika</option>
+                    <option value="Onatili">Ona tili</option>
+                    <option value="Adabiyot">Adabiyot</option>
+                    <option value="Arabtili">Arab tili</option>
+                    <option value="Rustili">Rus tili</option>
+                    <option value="Ingliztili">Ingliz tili</option>
+                  </optgroup>
+                </select>
+              </div>
             </div>
           </div>
-          <div>
-            <label
-              htmlFor="phone-number"
-              className="block text-sm font-semibold leading-6 text-gray-900">
-              Phone number
-            </label>
-            <div className="relative mt-2.5">
-              <input
-                type="tel"
-                name="phone-number"
-                id="phone-number"
-                autoComplete="tel"
-                className="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div>
-            <label
-              htmlFor="phone-number"
-              className="block text-sm font-semibold leading-6 text-gray-900">
-              Course
-            </label>
-            <div className="relative mt-2.5 rounded-lg w-24 h-10 flex items-center justify-center shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-              <select name="" id="" className="p-2 outline-none cursor-pointer">
-                <optgroup className="p-3 bg-zinc-400">
-                  <option value="tarix">Tarix</option>
-                </optgroup>
-              </select>
-            </div>
-          </div>
-          <div className="sm:col-span-2">
+          <div className="mt-5">
             <label
               htmlFor="message"
-              className="block text-sm font-semibold leading-6 text-gray-900">
+              className="block text-md font-bold leading-6 text-gray-900">
               Message
             </label>
-            <div className="mt-2.5">
+            <div className="mt-2">
               <textarea
-                name="message"
+                name="Xabar"
                 id="message"
+                placeholder="Message to be sent!"
                 rows={4}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 defaultValue={""}
@@ -102,11 +113,10 @@ export default function Contact() {
           </div>
         </div>
         <div className="mt-10">
-          <button
+          <input
             type="submit"
-            className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-            Send
-          </button>
+            className="w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-lg font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          />
         </div>
       </form>
     </div>

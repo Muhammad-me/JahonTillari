@@ -9,7 +9,9 @@ export default function Footer() {
         <div className="flex justify-between">
           <div className="w-1/4">
             <div className="w-20 h-20">
-              <img className="w-full h-full" src={logo} alt="JahonTillari" />
+              <a href="/">
+                <img className="w-full h-full" src={logo} alt="JahonTillari" />
+              </a>
             </div>
             <p className="text-lg font-medium mt-2">
               Make the world a better place through the best learning.

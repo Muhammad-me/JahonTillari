@@ -3,6 +3,7 @@ import Contact from "./Contact";
 import Courses from "./Courses";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import Special from "./Special";
 import ArrowLongDown from "./assets/ArrowLongDown";
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
         </div>
       </div>
       <Courses />
+      <Special />
       <Contact />
       <Footer />
     </div>
