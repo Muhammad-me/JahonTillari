@@ -1,4 +1,9 @@
+import { MultiSelect } from "@mantine/core";
+import { useTranslation } from "react-i18next";
+
 export default function Contact() {
+  const { t } = useTranslation("translation");
+
   function Submit(e) {
     const formEl = document.querySelector("form");
     e.preventDefault();
@@ -11,6 +16,19 @@ export default function Contact() {
       .then((data) => data)
       .catch((err) => console.log(err));
   }
+
+  const data = [
+    { value: "Ona tili", label: "Ona tili" },
+    { value: "Adabiyot", label: "Adabiyot" },
+    { value: "Matematika", label: "Matematika" },
+    { value: "Fizika", label: "Fizika" },
+    { value: "Tarix", label: "Tarix" },
+    { value: "Kimyo", label: "Kimyo" },
+    { value: "Biologiya", label: "Biologiya" },
+    { value: "Arab tili", label: "Arab tili" },
+    { value: "Ingliz tili", label: "Ingliz tili" },
+    { value: "Rus tili", label: "Rus tili" },
+  ];
 
   return (
     <div id="pg4" className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
@@ -27,7 +45,7 @@ export default function Contact() {
       </div>
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          Contact
+          {t("cntc")}
         </h2>
       </div>
       <form
@@ -38,73 +56,56 @@ export default function Contact() {
             <label
               htmlFor="first-name"
               className="block text-md font-bold leading-6 text-gray-900">
-              Full name
+              {t("fl_name")}
             </label>
             <div className="mt-1">
               <input
                 type="text"
                 name="IsmFamilya"
                 id="first-name"
-                placeholder="Full name"
-                autoComplete="given-name"
+                placeholder={t("fl_name")}
+                autoComplete
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
-          <div className="flex justify-between mt-5">
-            <div>
-              <label
-                htmlFor="phone-number"
-                className="block text-md font-bold leading-6 text-gray-900">
-                Phone number
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="Raqam"
-                  id="phone-number"
-                  placeholder="Phone Number"
-                  autoComplete="tel"
-                  className="block w-full rounded-md border-0 px-3.5 py-2 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
+          <div>
+            <label
+              htmlFor="phone-number"
+              className="block text-md font-bold leading-6 text-gray-900 mt-5">
+              {t("numb")}
+            </label>
+            <div className="mt-2">
+              <input
+                type="text"
+                name="Raqam"
+                id="phone-number"
+                placeholder={t("numb")}
+                autoComplete="tel"
+                className="block w-full rounded-md border-0 px-3.5 py-2 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
             </div>
-            <div>
-              <label
-                htmlFor="phone-number"
-                className="block text-md font-bold leading-6 text-gray-900">
-                Course
-              </label>
-              <div className="relative mt-2 rounded-lg w-36 h-10 flex items-center justify-center shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                <select name="Kurs" className="p-2 outline-none cursor-pointer">
-                  <optgroup className="p-3 bg-zinc-100 text-lg font-medium">
-                    <option value="Choose">Choose one</option>
-                    <option value="Tarix">Tarix</option>
-                    <option value="Kimyo">Kimyo</option>
-                    <option value="Biologiya">Biologiya</option>
-                    <option value="Fizika">Fizika</option>
-                    <option value="Matematika">Matematika</option>
-                    <option value="Onatili">Ona tili</option>
-                    <option value="Adabiyot">Adabiyot</option>
-                    <option value="Arabtili">Arab tili</option>
-                    <option value="Rustili">Rus tili</option>
-                    <option value="Ingliztili">Ingliz tili</option>
-                  </optgroup>
-                </select>
-              </div>
-            </div>
+          </div>
+          <div>
+            <MultiSelect
+              data={data}
+              label={t("chs")}
+              placeholder={t("plh")}
+              searchable
+              className="text-2xl leading-6 text-gray-900 mt-5 font-semibold"
+            />
           </div>
           <div className="mt-5">
             <label
               htmlFor="message"
               className="block text-md font-bold leading-6 text-gray-900">
-              Message
+              {t("msg")}
             </label>
             <div className="mt-2">
               <textarea
                 name="Xabar"
                 id="message"
-                placeholder="Message to be sent!"
+                placeholder={t("msg_txt")}
                 rows={4}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 defaultValue={""}
@@ -114,6 +115,7 @@ export default function Contact() {
         </div>
         <div className="mt-10">
           <input
+            onClick={(e) => Submit(e)}
             type="submit"
             className="w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-lg font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           />
