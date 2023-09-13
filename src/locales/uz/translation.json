@@ -33,10 +33,10 @@
   "chs": "Fanni tanlang",
   "plh": "Kurs turini tanglang",
   "msg": "Xabar",
-  "msg_txt": "Qandydir taklifingiz bo'lsa yoki kurs vaqtini tanlamoqchi bo'lsangiz xabar qoldiring",
+  "msg_txt": "Qaysi kursda o'qimoqchiligingizni xabar qilib qoldiring",
   "mtt": "Yaxshi o'rganish orqali dunyoni yaxshiroq tomonga o'zgartiring.",
   "spc": "Biznig maxsus Kursimiz",
-  "spc_txt": "Bu bizning dasturlash kursimiz. U 5 oy davom etadi. O'qituvchimiz Toshkentda MediaTech It School o'quv markazini bitirib Sertifikantga ega bo'lagan dasturchilardan biri hisoblanadi. Ko'proq ma'lumot bilish uchun bosing!",
+  "spc_txt": "Bu bizning dasturlash kursimiz. U 5 oy davom etadi. O'qituvchimiz Toshkentda MediaTech It School o'quv markazini bitirib Sertifikatga ega bo'lagan dasturchilardan biri hisoblanadi. Ko'proq ma'lumot bilish uchun bosing!",
   "lrn": "Batafsil ma'lumot",
   "frnt": "Full Stack Dasturchi",
   "frnt_txt": "Bu dasturchi ustozimiz Toshkentda MediaTech It School o'quv markazini bitirgan o'quvchilardan biri hisoblanadi. Hozirda o'zi olgan bilimlarini ulashish maqsadida kurs ochganlar. Mana bu ularning sertifikatlari.",
@@ -45,5 +45,6 @@
   "rqs_2": "Kompyuter oling",
   "rqs_3": "Kuniga imkon qadar ko'proq vaqt sarflang",
   "dsr": "Dasturlash",
-  "pl": "Kursni tanlang"
+  "pl": "Kursni tanlang",
+  "snd": "Yuborish"
 }

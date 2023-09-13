@@ -1,34 +1,42 @@
-import { MultiSelect } from "@mantine/core";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 export default function Contact() {
   const { t } = useTranslation("translation");
+  const [data, setData] = useState({
+    name: "",
+    number: "",
+    message: "",
+  });
 
-  function Submit(e) {
-    const formEl = document.querySelector("form");
+  const { name, number, message } = data;
+
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData(formEl);
-    fetch("https://sheetdb.io/api/v1/xsd7zvyh6etuv", {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => data)
-      .catch((err) => console.log(err));
-  }
 
-  const data = [
-    { value: "Ona tili", label: "Ona tili" },
-    { value: "Adabiyot", label: "Adabiyot" },
-    { value: "Matematika", label: "Matematika" },
-    { value: "Fizika", label: "Fizika" },
-    { value: "Tarix", label: "Tarix" },
-    { value: "Kimyo", label: "Kimyo" },
-    { value: "Biologiya", label: "Biologiya" },
-    { value: "Arab tili", label: "Arab tili" },
-    { value: "Ingliz tili", label: "Ingliz tili" },
-    { value: "Rus tili", label: "Rus tili" },
-  ];
+    try {
+      const response = await fetch(
+        "https://v1.nocodeapi.com/binearybeast/google_sheets/ziaIdDcOgHAmKMOS?tabId=Лист1",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify([
+            [name, number, message, new Date().toLocaleString()],
+          ]),
+        }
+      );
+      await response.json();
+      setData({ ...data, name: "", number: "", message: "" });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div id="pg4" className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
@@ -48,9 +56,7 @@ export default function Contact() {
           {t("cntc")}
         </h2>
       </div>
-      <form
-        className="mx-auto mt-16 max-w-md sm:mt-20"
-        onSubmit={(e) => Submit(e)}>
+      <form className="mx-auto mt-16 max-w-md sm:mt-20" onSubmit={handleSubmit}>
         <div>
           <div>
             <label
@@ -60,11 +66,11 @@ export default function Contact() {
             </label>
             <div className="mt-1">
               <input
+                value={name}
+                onChange={handleChange}
                 type="text"
-                name="IsmFamilya"
-                id="first-name"
+                name="name"
                 placeholder={t("fl_name")}
-                autoComplete
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
@@ -77,48 +83,42 @@ export default function Contact() {
             </label>
             <div className="mt-2">
               <input
-                type="text"
-                name="Raqam"
-                id="phone-number"
+                value={number}
+                onChange={handleChange}
+                type="tel"
+                name="number"
                 placeholder={t("numb")}
-                autoComplete="tel"
                 className="block w-full rounded-md border-0 px-3.5 py-2 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
           <div>
-            <MultiSelect
-              data={data}
-              label={t("chs")}
-              placeholder={t("plh")}
-              searchable
-              className="text-2xl leading-6 text-gray-900 mt-5 font-semibold"
-            />
-          </div>
-          <div className="mt-5">
             <label
               htmlFor="message"
-              className="block text-md font-bold leading-6 text-gray-900">
+              className="block text-md font-bold leading-6 text-gray-900 mt-5">
               {t("msg")}
             </label>
             <div className="mt-2">
-              <textarea
-                name="Xabar"
-                id="message"
+              <input
+                value={message}
+                onChange={handleChange}
+                required
+                type="text"
+                name="message"
                 placeholder={t("msg_txt")}
-                rows={4}
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                defaultValue={""}
+                className="block w-full rounded-md border-0 px-3.5 py-2 pr-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
         </div>
         <div className="mt-10">
-          <input
-            onClick={(e) => Submit(e)}
+          <button
+            onClick={handleSubmit}
             type="submit"
-            className="w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-lg font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          />
+            value="submit"
+            className="w-full cursor-pointer rounded-md bg-indigo-600 px-3 py-2 text-center text-lg font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            {t("snd")}
+          </button>
         </div>
       </form>
     </div>

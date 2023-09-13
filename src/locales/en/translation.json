@@ -33,7 +33,7 @@
   "chs": "Choose the subject",
   "plh": "Choose a course type",
   "msg": "Message",
-  "msg_txt": "If you have any suggestions or want to choose a course time, leave a message",
+  "msg_txt": "Please let us know which course you want to study",
   "mtt": "Make the world a better place through the best learning.",
   "spc": "Our Special Course",
   "spc_txt": "This is our programming course. It lasts 5 months. Our teacher is one of the programmers who graduated from the MediaTech It School training center in Tashkent and got a certificate. Click to learn more!",
@@ -45,5 +45,6 @@
   "rqs_2": "Get a computer",
   "rqs_3": "Spend as much time as possible per day",
   "dsr": "Programming",
-  "pl": "Choose a course"
+  "pl": "Choose a course",
+  "snd": "Send"
 }
