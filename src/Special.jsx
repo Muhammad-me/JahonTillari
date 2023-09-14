@@ -9,13 +9,13 @@ export default function Special() {
 
   return (
     <div id="pg3" className="bg-black">
-      <div className="container mx-auto px-5 py-52">
-        <div className="sm:flex ml-20 sm:ml-0 justify-center sm:justify-between items-center">
-          <div className="sm:w-1/2">
-            <h1 className="text-5xl font-bold w-1/2 text-blue-700">
+      <div className="container mx-auto px-5 py-20 sm:py-52">
+        <div className="block sm:flex sm:ml-0 justify-center sm:justify-between items-center">
+          <div className="w-full sm:w-1/2">
+            <h1 className="text-xl sm:text-5xl font-semibold sm:w-1/2 text-blue-700">
               {t("spc")}
             </h1>
-            <p className="text-xl font-medium text-white mt-5 w-2/3 tracking-wider">
+            <p className="text-md sm:text-xl font-medium text-white mt-5 sm:w-2/3 tracking-wider">
               {t("spc_txt")}
             </p>
             <NavLink to="/coding">
@@ -29,8 +29,8 @@ export default function Special() {
               </Button>
             </NavLink>
           </div>
-          <div className="sm:w-1/3 mt-10 sm:mt-0 -rotate-90">
-            <img src={sertificate} alt="" />
+          <div className="w-2/3 sm:w-1/3 mt-10 sm:mt-0 -rotate-90 mx-auto">
+            <img src={sertificate} alt="sertificate" />
           </div>
         </div>
       </div>

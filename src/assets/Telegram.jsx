@@ -5,9 +5,7 @@ export default function Telegram() {
     <div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="icon icon-tabler icon-tabler-brand-telegram"
-        width="35"
-        height="35"
+        className="icon icon-tabler icon-tabler-brand-telegram sm:w-6 sm:h-6 hidden sm:block"
         viewBox="0 0 24 24"
         strokeWidth="2"
         stroke="currentColor"

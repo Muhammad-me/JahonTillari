@@ -9,7 +9,7 @@ export default function ArrowLongDown() {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="orange"
-        className="w-14 h-10">
+        className="w-8 h-8">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"

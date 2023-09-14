@@ -1,13 +1,13 @@
 import { Burger, Drawer, Group, Menu } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import logo from "./assets/jt_logo.jpg";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
+import logo from "./assets/jt_logo.jpg";
 
 const languageMap = {
-  "uz-UZ": { label: "UZ", dir: "ltr", active: true },
-  "ru-RU": { label: "RU", dir: "ltr", active: false },
-  "en-EN": { label: "EN", dir: "ltr", active: false },
+  "uz-UZ": { label: "Uzbek", dir: "ltr", active: true },
+  "ru-RU": { label: "Русский", dir: "ltr", active: false },
+  "en-EN": { label: "English", dir: "ltr", active: false },
 };
 
 export default function Navbar() {
@@ -87,9 +87,10 @@ export default function Navbar() {
               <Drawer
                 opened={opened}
                 onClose={close}
+                size={300}
                 overlayProps={{ opacity: 0.5, blur: 4 }}
-                className="bg-blue-800">
-                <div className="w-20 h-20">
+                className="bg-blue-800 w-2/3">
+                <div className="w-20 h-20 ">
                   <a href="/">
                     <img
                       className="w-full h-full"
@@ -98,7 +99,7 @@ export default function Navbar() {
                     />
                   </a>
                 </div>
-                <ul className="gap-5 text-2xl">
+                <ul className="gap-5 text-xl">
                   <a href="#pg1">
                     <li className="ease-in-out py-2 px-3 cursor-pointer border-2 my-3 hover:text-white hover:bg-zinc-500 rounded-lg">
                       {t("nav1")}
